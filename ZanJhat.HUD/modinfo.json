@@ -1,0 +1,16 @@
+{
+  "Name": "ZanJhat HUD",
+  "Version": "1.0.0",
+  "ApiVersion": ">=1.9.0.2",
+  "Description": "A customizable HUD and tooltip overhaul mod for a better UI experience.",
+  "ScVersion": "2.4.0.0",
+  "LoadOrder": 0,
+  "NonPersistentMod": false,
+  "GameplayImpactLevel": "Assist",
+  "Author": "ZanJhat",
+  "Link": "https://github.com/ZanJhat/ZanJhat-HUD",
+  "PackageName": "ZanJhat.HUD",
+  "Dependencies": {
+    "ZanJhat.Core": ">=2.0.0"
+  }
+}
