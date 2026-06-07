@@ -68,7 +68,7 @@ namespace ZanJhat.HUD
             };
             clothingSlot.Children.Add(background);
 
-            BlockIconWidget blockIconWidget = new BlockIconWidget
+            BlockIconWidget blockIcon = new BlockIconWidget
             {
                 Name = name,
                 Size = new Vector2(72f * Scale),
@@ -76,9 +76,10 @@ namespace ZanJhat.HUD
                 VerticalAlignment = WidgetAlignment.Center,
                 Margin = new Vector2(2f * Scale)
             };
-            clothingSlot.Children.Add(blockIconWidget);
+            //blockIcon.DrawBlockEnvironmentData.SubsystemTerrain = SubsystemTerrain;
+            clothingSlot.Children.Add(blockIcon);
 
-            ValueBarWidget healthBarWidget = new ValueBarWidget
+            ValueBarWidget healthBar = new ValueBarWidget
             {
                 Name = name,
                 LayoutDirection = LayoutDirection.Vertical,
@@ -92,7 +93,7 @@ namespace ZanJhat.HUD
                 BarSubtexture = ContentManager.Get<Subtexture>("Textures/Atlas/ProgressBar"),
                 Margin = new Vector2(4f * Scale)
             };
-            clothingSlot.Children.Add(healthBarWidget);
+            clothingSlot.Children.Add(healthBar);
 
             return clothingSlot;
         }
@@ -168,6 +169,8 @@ namespace ZanJhat.HUD
                 return;
 
             BlockIconWidget icon = slotWidget.Children.Find<BlockIconWidget>(widgetName, true);
+            //icon.DrawBlockEnvironmentData.SubsystemTerrain = SubsystemTerrain;
+
             ValueBarWidget bar = slotWidget.Children.Find<ValueBarWidget>(widgetName, true);
 
             int value = GetTopClothing(slot);

@@ -349,6 +349,7 @@ targetInfo, name, infoRows, packageName);
                 Color = Color.White,
                 Margin = new Vector2(2f)
             };
+            blockIcon.DrawBlockEnvironmentData.SubsystemTerrain = SubsystemTerrain;
             blockHeaderPanel.Children.Add(blockIcon);
 
             StackPanelWidget blockDetailsPanel = new StackPanelWidget
@@ -604,13 +605,34 @@ targetInfo, name, infoRows, packageName);
             ComponentMiner componentMiner = ComponentPlayer?.ComponentMiner;
             GameMode gameMode = SubsystemGameInfo.WorldSettings.GameMode;
 
-            if (gameMode == GameMode.Creative || gameMode == GameMode.Adventure || componentMiner == null)
+            if (gameMode == GameMode.Creative || componentMiner == null)
                 return;
 
             BlockDigMethod blockDigMethod = block.GetBlockDigMethod(value);
-            bool valid = IsDigMethodValid(blockDigMethod, componentMiner.ActiveBlockValue);
 
-            CreateDigMethod(stackPanel, blockDigMethod, valid, new Vector2(32f), new Vector2(32f), new Vector2(16f), new Vector2(2f), WidgetAlignment.Near, WidgetAlignment.Near);
+            // Block không cần tool
+            if (blockDigMethod == BlockDigMethod.None)
+                return;
+
+            int activeBlockValue = componentMiner.ActiveBlockValue;
+
+            bool hasTool = HasDigTool(activeBlockValue);
+            bool valid = IsDigMethodValid(blockDigMethod, activeBlockValue);
+
+            CreateDigMethod(stackPanel, blockDigMethod, valid, hasTool, new Vector2(32f), new Vector2(32f), new Vector2(16f), new Vector2(2f), WidgetAlignment.Near, WidgetAlignment.Near);
+        }
+
+        public static bool HasDigTool(int value)
+        {
+            int contents = Terrain.ExtractContents(value);
+            Block block = BlocksManager.Blocks[contents];
+
+            return block is ShovelBlock
+                || block is AxeBlock
+                || block is PickaxeBlock
+                || block.GetShovelPower(value) >= 2f
+                || block.GetHackPower(value) >= 3f
+                || block.GetQuarryPower(value) >= 5f;
         }
 
         public static bool IsDigMethodValid(BlockDigMethod target, int value)
@@ -637,7 +659,7 @@ targetInfo, name, infoRows, packageName);
             return false;
         }
 
-        public static CanvasWidget CreateDigMethod(ContainerWidget parent, BlockDigMethod blockDigMethod, bool valid, Vector2 cavasSize, Vector2 iconSize, Vector2 tickSize, Vector2 margin, WidgetAlignment verticalAlignment, WidgetAlignment horizontalAlignment)
+        public static CanvasWidget CreateDigMethod(ContainerWidget parent, BlockDigMethod blockDigMethod, bool valid, bool hasTool, Vector2 cavasSize, Vector2 iconSize, Vector2 tickSize, Vector2 margin, WidgetAlignment verticalAlignment, WidgetAlignment horizontalAlignment)
         {
             if (parent != null)
             {
@@ -660,6 +682,7 @@ targetInfo, name, infoRows, packageName);
                     VerticalAlignment = WidgetAlignment.Center,
                     Margin = new Vector2(2f, 2f)
                 };
+                //blockIcon.DrawBlockEnvironmentData.SubsystemTerrain = GameManager.Project.FindSubsystem<SubsystemTerrain>();
                 canvas.Children.Add(blockIcon);
 
                 RectangleWidget rectangle = new RectangleWidget
@@ -669,7 +692,8 @@ targetInfo, name, infoRows, packageName);
                     HorizontalAlignment = WidgetAlignment.Far,
                     Subtexture = ContentManager.Get<Subtexture>(valid ? "Textures/Atlas/Tick" : "Textures/Gui/Unavailable"),
                     OutlineColor = Color.Transparent,
-                    FillColor = valid ? Color.Green : Color.Red
+                    FillColor = valid ? Color.Green : Color.Red,
+                    IsVisible = hasTool
                 };
                 canvas.Children.Add(rectangle);
 
@@ -684,12 +708,14 @@ targetInfo, name, infoRows, packageName);
             ComponentMiner componentMiner = ComponentPlayer?.ComponentMiner;
             GameMode gameMode = SubsystemGameInfo.WorldSettings.GameMode;
 
-            if (gameMode == GameMode.Creative || gameMode == GameMode.Adventure)
+            if (gameMode == GameMode.Creative)
                 return;
 
             float digProgress = targetInfo.DigProgress;
-            if (digProgress <= 0f)
-                return;
+            /*if (digProgress <= 0f)
+                return;*/
+
+            digProgress = MathUtils.Saturate(digProgress);
 
             ValueFillWidget valueFill = new ValueFillWidget
             {
