@@ -1,4 +1,4 @@
-﻿using Engine;
+using Engine;
 using Engine.Graphics;
 using Engine.Media;
 using Engine.Serialization;
@@ -14,7 +14,6 @@ using System.Text;
 using XmlUtilities;
 using Game;
 using ZanJhat.Core;
-using ZanJhat.HUD;
 
 namespace ZanJhat.HUD
 {
