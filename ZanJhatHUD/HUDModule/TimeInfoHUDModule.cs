@@ -142,7 +142,7 @@ namespace ZanJhat.HUD
             if (m_timeInfoWidget == null)
                 return;
 
-            if (!m_timeInfoSettings.Enable)
+            if (!m_timeInfoSettings.ShowHUD)
             {
                 m_timeInfoWidget.IsVisible = false;
                 return;

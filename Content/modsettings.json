@@ -1,0 +1,258 @@
+[
+  {
+    "Id": "LookingAtInfoSettings",
+    "Name": "Looking At Info",
+    "Title": "Looking At Info Settings",
+    "Items": [
+      {
+        "Id": "ShowHUD",
+        "Name": "Show HUD",
+        "Description": "Displays information about the block, creature, or entity you are looking at.",
+        "Type": "bool",
+        "Default": true
+      },
+      {
+        "Id": "ShowDetail",
+        "Name": "Show Detail",
+        "Description": "Shows detailed information about the block, creature, or entity you are looking at.",
+        "Type": "bool",
+        "Default": true
+      },
+      {
+        "Id": "ShowInventory",
+        "Name": "Show Inventory",
+        "Description": "Shows the inventory and stored items of the block or entity you are looking at.",
+        "Type": "bool",
+        "Default": true
+      },
+      {
+        "Id": "ShowPackageName",
+        "Name": "Show Package Name",
+        "Description": "Shows the mod package name of the block, creature, or entity you are looking at.",
+        "Type": "bool",
+        "Default": true
+      }
+    ]
+  },
+  {
+    "Id": "FocusWidgetSettings",
+    "Name": "Focus Widget",
+    "Title": "Focus Widget Settings",
+    "Items": [
+      {
+        "Id": "ShowHUD",
+        "Name": "Show HUD",
+        "Description": "Displays a tooltip when focusing on or dragging an item in a registered widget.",
+        "Type": "bool",
+        "Default": true
+      },
+      {
+        "Id": "ShowDetail",
+        "Name": "Show Detail",
+        "Description": "Shows detailed information about the focused or dragged item.",
+        "Type": "bool",
+        "Default": true
+      },
+      {
+        "Id": "ShowDescription",
+        "Name": "Show Description",
+        "Description": "Shows the description of the focused or dragged item.",
+        "Type": "bool",
+        "Default": true
+      },
+      {
+        "Id": "ShowPackageName",
+        "Name": "Show Package Name",
+        "Description": "Shows the mod package name of the focused or dragged item.",
+        "Type": "bool",
+        "Default": true
+      }
+    ]
+  },
+  {
+    "Id": "PositionLabelSettings",
+    "Name": "Position Label",
+    "Title": "Position Label Settings",
+    "Items": [
+      {
+        "Id": "ShowHUD",
+        "Name": "Show HUD",
+        "Description": "Shows the player's current position.",
+        "Type": "bool",
+        "Default": true
+      },
+      {
+        "Id": "Anchor",
+        "Name": "Anchor",
+        "Description": "Sets the anchor position of the HUD on the screen.",
+        "Type": "ZanJhat.Core.Anchor",
+        "Default": "TopLeft"
+      },
+      {
+        "Id": "MarginX",
+        "Name": "Margin X",
+        "Description": "Adjusts the horizontal offset from the selected anchor position.",
+        "Type": "float",
+        "Default": 72,
+        "WidgetProperties": {
+          "MinValue": -256,
+          "MaxValue": 256,
+          "Granularity": 1
+        }
+      },
+      {
+        "Id": "MarginY",
+        "Name": "Margin Y",
+        "Description": "Adjusts the vertical offset from the selected anchor position.",
+        "Type": "float",
+        "Default": 67,
+        "WidgetProperties": {
+          "MinValue": -128,
+          "MaxValue": 128,
+          "Granularity": 1
+        }
+      },
+      {
+        "Id": "FontScale",
+        "Name": "Font Scale",
+        "Description": "Adjusts the size of the position text displayed.",
+        "Type": "float",
+        "Default": 0.8,
+        "WidgetProperties": {
+          "MinValue": 0.5,
+          "MaxValue": 1.5,
+          "Granularity": 0.1
+        }
+      }
+    ]
+  },
+  {
+    "Id": "TimeInfoSettings",
+    "Name": "Time Info",
+    "Title": "Time Info Settings",
+    "Items": [
+      {
+        "Id": "ShowHUD",
+        "Name": "Show HUD",
+        "Description": "Shows the current time, world day, weather information, and upcoming weather events such as rain and fog, including when they start and end.",
+        "Type": "bool",
+        "Default": true
+      },
+      {
+        "Id": "Anchor",
+        "Name": "Anchor",
+        "Description": "Sets the anchor position of the HUD on the screen.",
+        "Type": "ZanJhat.Core.Anchor",
+        "Default": "TopLeft"
+      },
+      {
+        "Id": "MarginX",
+        "Name": "Margin X",
+        "Description": "Adjusts the horizontal offset from the selected anchor position.",
+        "Type": "float",
+        "Default": 114,
+        "WidgetProperties": {
+          "MinValue": -256,
+          "MaxValue": 256,
+          "Granularity": 1
+        }
+      },
+      {
+        "Id": "MarginY",
+        "Name": "Margin Y",
+        "Description": "Adjusts the vertical offset from the selected anchor position.",
+        "Type": "float",
+        "Default": 94,
+        "WidgetProperties": {
+          "MinValue": -256,
+          "MaxValue": 256,
+          "Granularity": 1
+        }
+      },
+      {
+        "Id": "Scale",
+        "Name": "Scale",
+        "Description": "Adjusts the size of the status effect icons.",
+        "Type": "float",
+        "Default": 0.8,
+        "WidgetProperties": {
+          "MinValue": 0.5,
+          "MaxValue": 1.5,
+          "Granularity": 0.1
+        }
+      }
+    ]
+  },
+  
+  {
+    "Id": "ClothingInfoSettings",
+    "Name": "Clothing Info",
+    "Title": "Clothing Info Settings",
+    "Items": [
+      {
+        "Id": "ShowHUD",
+        "Name": "Show HUD",
+        "Description": "Shows the icons and durability of each equipped clothing item above its corresponding clothing slot.",
+        "Type": "bool",
+        "Default": true
+      },
+      {
+        "Id": "HideEmptyClothingSlots",
+        "Name": "Hide Empty Clothing Slots",
+        "Description": "Hides information for empty clothing slots.",
+        "Type": "bool",
+        "Default": true
+      },
+      {
+        "Id": "Anchor",
+        "Name": "Anchor",
+        "Description": "Sets the anchor position of the HUD on the screen.",
+        "Type": "ZanJhat.Core.Anchor",
+        "Default": "TopLeft"
+      },
+      {
+        "Id": "MarginX",
+        "Name": "Margin X",
+        "Description": "Adjusts the horizontal offset from the selected anchor position.",
+        "Type": "float",
+        "Default": 72,
+        "WidgetProperties": {
+          "MinValue": -256,
+          "MaxValue": 256,
+          "Granularity": 1
+        }
+      },
+      {
+        "Id": "MarginY",
+        "Name": "Margin Y",
+        "Description": "Adjusts the vertical offset from the selected anchor position.",
+        "Type": "float",
+        "Default": 94,
+        "WidgetProperties": {
+          "MinValue": -256,
+          "MaxValue": 256,
+          "Granularity": 1
+        }
+      },
+      {
+        "Id": "LayoutDirection",
+        "Name": "Layout Direction",
+        "Description": "Controls the direction in which the status effect icons are arranged.",
+        "Type": "LayoutDirection",
+        "Default": "Vertical"
+      },
+      {
+        "Id": "Scale",
+        "Name": "Scale",
+        "Description": "Adjusts the size of the status effect icons.",
+        "Type": "float",
+        "Default": 0.5,
+        "WidgetProperties": {
+          "MinValue": 0.5,
+          "MaxValue": 1.5,
+          "Granularity": 0.1
+        }
+      }
+    ]
+  }
+]

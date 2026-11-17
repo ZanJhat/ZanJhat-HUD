@@ -111,7 +111,7 @@ namespace ZanJhat.HUD
 
         protected override void OnUpdate(float dt)
         {
-            if (HUDSettingsManager.LookingAtInfoSettings.Enable && ComponentPlayer.ComponentGui.ModalPanelWidget == null)
+            if (HUDSettingsManager.LookingAtInfoSettings.ShowHUD && ComponentPlayer.ComponentGui.ModalPanelWidget == null)
             {
                 LookTargetInfo targetInfo = new();
 
@@ -241,7 +241,7 @@ targetInfo, name, infoRows, packageName);
 
             WidgetUtils.AddLabel(stackPanel, name, Color.White, 0.85f, false, new Vector2(2f), WidgetAlignment.Center, WidgetAlignment.Near);
 
-            if (CoreSettingsManager.CoreSettings.DevMode && componentBehaviorSelector != null)
+            if (CoreSettingsManager.DevMode && componentBehaviorSelector != null)
             {
                 ComponentBehavior selected = null;
                 float max = 0f;
@@ -396,7 +396,7 @@ targetInfo, name, infoRows, packageName);
 
             WidgetUtils.AddLabel(stackPanel, block.GetDisplayName(null, value), Color.White, 0.85f, false, new Vector2(2f), WidgetAlignment.Center, WidgetAlignment.Near);
 
-            if (CoreSettingsManager.CoreSettings.DevMode)
+            if (CoreSettingsManager.DevMode)
             {
                 WidgetUtils.AddLabel(stackPanel, $"Type: {block.GetType().Name} Value: {value}", Color.Yellow, 0.6f, true, new Vector2(2f), WidgetAlignment.Center, WidgetAlignment.Near);
                 WidgetUtils.AddLabel(stackPanel, $"Contents: {contents}  Data: {data}", Color.Yellow, 0.6f, true, new Vector2(2f), WidgetAlignment.Center, WidgetAlignment.Near);

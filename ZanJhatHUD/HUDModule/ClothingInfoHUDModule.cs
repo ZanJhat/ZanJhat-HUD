@@ -127,7 +127,7 @@ namespace ZanJhat.HUD
             UpdateSlot(ClothingSlot.Legs, "Legs");
             UpdateSlot(ClothingSlot.Feet, "Feet");
 
-            m_clothingInfoWidget.IsVisible = m_clothingInfoSettings.Enable;
+            m_clothingInfoWidget.IsVisible = m_clothingInfoSettings.ShowHUD;
 
             WidgetUtils.SetAnchor(m_clothingInfoWidget, ComponentGui.ControlsContainerWidget, m_clothingInfoSettings.Anchor, m_clothingInfoSettings.MarginX, m_clothingInfoSettings.MarginY);
         }

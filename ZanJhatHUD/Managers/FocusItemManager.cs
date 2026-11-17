@@ -50,13 +50,13 @@ namespace ZanJhat.HUD
                 {
                     logged = false;
 
-                    if (CoreSettingsManager.CoreSettings.DevMode)
+                    if (CoreSettingsManager.DevMode)
                         Log.Information($"{name} Enter: " + item.Owner);
                 },
 
                 OnFocusUpdate = item =>
                 {
-                    if (!logged && CoreSettingsManager.CoreSettings.DevMode)
+                    if (!logged && CoreSettingsManager.DevMode)
                     {
                         logged = true;
                         Log.Information($"{name} Update: " + item.Owner);
@@ -93,13 +93,13 @@ namespace ZanJhat.HUD
                 {
                     logged = false;
 
-                    if (CoreSettingsManager.CoreSettings.DevMode)
+                    if (CoreSettingsManager.DevMode)
                         Log.Information($"{name} Lost: " + item.Owner);
                 },
 
                 OnBuildFocusContent = (item, container, inputType) =>
                 {
-                    if (CoreSettingsManager.CoreSettings.DevMode)
+                    if (CoreSettingsManager.DevMode)
                         Log.Information($"{name} Build: " + item.Owner);
 
                     if (ownerWidget is InventorySlotWidget inventorySlotWidget)
@@ -135,7 +135,7 @@ namespace ZanJhat.HUD
 
             WidgetUtils.AddLabel(stackPanel, block.GetDisplayName(null, value), Color.White, 0.75f, false, new Vector2(2f), WidgetAlignment.Center, WidgetAlignment.Near);
 
-            if (CoreSettingsManager.CoreSettings.DevMode)
+            if (CoreSettingsManager.DevMode)
             {
                 WidgetUtils.AddLabel(stackPanel, $"Type: {block.GetType().Name} Value: {value}  Contents: {contents}  Data: {data}", Color.Yellow, 0.5f, true, new Vector2(2f), WidgetAlignment.Center, WidgetAlignment.Near);
             }

@@ -60,7 +60,7 @@ namespace ZanJhat.HUD
 
             m_positionLabel.Text = $"Position: {position.X:0.0}, {position.Y:0.0}, {position.Z:0.0}";
             m_positionLabel.FontScale = m_positionLabelSettings.FontScale;
-            m_positionWidget.IsVisible = m_positionLabelSettings.Enable;
+            m_positionWidget.IsVisible = m_positionLabelSettings.ShowHUD;
 
             WidgetUtils.SetAnchor(m_positionWidget, ComponentGui.ControlsContainerWidget, m_positionLabelSettings.Anchor, m_positionLabelSettings.MarginX, m_positionLabelSettings.MarginY);
         }
